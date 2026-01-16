@@ -61,9 +61,7 @@ export default function App() {
     jitter_ms_p90: true,
   });
   const [isMobile, setIsMobile] = useState(() => window.innerWidth <= 820);
-  const [summaryWindowFilter, setSummaryWindowFilter] = useState<number | "all">(() =>
-    window.innerWidth <= 820 ? 60 : "all"
-  );
+  const [summaryWindowFilter, setSummaryWindowFilter] = useState<number | "all">(() => "all");
   const [metricWindowFilters, setMetricWindowFilters] = useState<
     Record<string, number | "all">
   >({});
@@ -293,7 +291,7 @@ export default function App() {
           if (Object.keys(prev).length > 0) return prev;
           const next: Record<string, number | "all"> = {};
           metricOptions.forEach((metric) => {
-            next[metric.key] = isMobile ? 30 : 60;
+            next[metric.key] = "all";
           });
           return next;
         });
@@ -341,7 +339,7 @@ export default function App() {
           if (Object.keys(prev).length > 0) return prev;
           const next: Record<string, number | "all"> = {};
           metricOptions.forEach((metric) => {
-            next[metric.key] = isMobile ? 30 : 60;
+            next[metric.key] = "all";
           });
           return next;
         });
@@ -462,6 +460,20 @@ export default function App() {
           <div className="control-block">
             <h3>Metrics</h3>
             <div className="toggle-row">
+              <button
+                className={`chip ${Object.values(selectedMetrics).every(Boolean) ? "active" : ""}`}
+                type="button"
+                onClick={() => {
+                  const allSelected = Object.values(selectedMetrics).every(Boolean);
+                  const next: Record<string, boolean> = {};
+                  metricOptions.forEach((metric) => {
+                    next[metric.key] = !allSelected;
+                  });
+                  setSelectedMetrics(next);
+                }}
+              >
+                {Object.values(selectedMetrics).every(Boolean) ? "Clear all" : "Select all"}
+              </button>
               {metricOptions.map((metric) => (
                 <label key={metric.key} className="toggle">
                   <input
@@ -578,20 +590,6 @@ export default function App() {
         })}
       </section>
 
-      <section className="summary">
-        {rows.slice(-3).map((row) => (
-          <div key={row.timestamp} className="summary-card">
-            <div>
-              <h4>{new Date(row.timestamp).toLocaleString()}</h4>
-              <p className="muted">Quality: {row.availability?.quality_state ?? "Unknown"}</p>
-            </div>
-            <div className="score">
-              {row.availability?.quality_score ?? "--"}
-              <span>score</span>
-            </div>
-          </div>
-        ))}
-      </section>
     </div>
   );
 }
