@@ -182,23 +182,28 @@ button.ghost {
 
 .summary-controls {
   display: grid;
-  gap: 18px;
-  margin-bottom: 20px;
+  gap: 12px;
+  margin-bottom: 16px;
 }
 
 .control-block {
   background: #fff;
-  padding: 16px;
+  padding: 10px 12px;
   border-radius: 16px;
   border: 1px solid rgba(30, 31, 36, 0.08);
   display: grid;
-  gap: 10px;
+  gap: 6px;
 }
 
 .toggle-row {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 6px;
+}
+
+.control-block h3 {
+  margin: 0;
+  font-size: 14px;
 }
 
 .metrics-grid {
@@ -241,16 +246,16 @@ button.ghost {
 .window-controls {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 6px;
 }
 
 .chip {
   background: #fff;
   color: var(--ink);
   border: 1px solid rgba(30, 31, 36, 0.2);
-  padding: 6px 12px;
+  padding: 4px 10px;
   border-radius: 999px;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 600;
   box-shadow: none;
   transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
