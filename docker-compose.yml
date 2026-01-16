@@ -1,0 +1,10 @@
+services:
+  networkobserver:
+    build: .
+    ports:
+      - "8080:8080"
+    cap_add:
+      - NET_RAW
+    volumes:
+      - ./config.json:/app/config.json:ro
+      - ./backend/logs:/app/backend/logs

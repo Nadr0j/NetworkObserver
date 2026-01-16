@@ -1,0 +1,356 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap");
+
+:root {
+  --ink: #1e1f24;
+  --muted: #5b5f6c;
+  --panel: rgba(255, 255, 255, 0.82);
+  --panel-strong: rgba(255, 255, 255, 0.96);
+  --accent: #f08f4c;
+  --accent-dark: #c16a2c;
+  --shadow: 0 24px 60px rgba(16, 24, 40, 0.16);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Space Grotesk", "IBM Plex Sans", "Trebuchet MS", sans-serif;
+  color: var(--ink);
+  background: radial-gradient(circle at top left, #fce9da, #f6f1e8 45%, #edf3f7 90%);
+  min-height: 100vh;
+}
+
+.app {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px 20px 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(260px, 1fr);
+  gap: 24px;
+  align-items: center;
+  animation: floatIn 0.7s ease-out;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 12px;
+  margin: 0 0 12px;
+  color: var(--muted);
+}
+
+h1 {
+  font-size: clamp(32px, 4vw, 52px);
+  margin: 0 0 16px;
+}
+
+.lede {
+  font-size: 18px;
+  line-height: 1.5;
+  color: var(--muted);
+  max-width: 520px;
+}
+
+.hero-card {
+  background: var(--panel-strong);
+  padding: 20px;
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+  display: grid;
+  gap: 14px;
+  justify-items: start;
+}
+
+.file-label {
+  display: grid;
+  gap: 8px;
+  font-weight: 600;
+}
+
+input[type="file"] {
+  border: 1px dashed rgba(30, 31, 36, 0.25);
+  padding: 10px;
+  border-radius: 10px;
+  background: #fff;
+  font-family: "IBM Plex Sans", sans-serif;
+}
+
+input[type="text"] {
+  border: 1px solid rgba(30, 31, 36, 0.2);
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: #fff;
+  font-family: "IBM Plex Sans", sans-serif;
+}
+
+button {
+  border: none;
+  padding: 10px 18px;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 600;
+  font-family: "IBM Plex Sans", sans-serif;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(240, 143, 76, 0.35);
+}
+
+button:disabled {
+  cursor: not-allowed;
+  background: #ccc;
+  box-shadow: none;
+  transform: none;
+}
+
+button.ghost {
+  background: transparent;
+  border: 1px solid rgba(30, 31, 36, 0.25);
+  color: var(--ink);
+}
+
+.panel {
+  background: var(--panel);
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(12px);
+  animation: floatIn 0.7s ease-out 0.1s both;
+}
+
+.panel-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.panel-header p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.toggles {
+  display: grid;
+  gap: 18px;
+}
+
+.toggle-group {
+  background: #fff;
+  padding: 16px;
+  border-radius: 16px;
+  border: 1px solid rgba(30, 31, 36, 0.08);
+  display: grid;
+  gap: 10px;
+}
+
+.toggle-group h3 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.toggle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: "IBM Plex Sans", sans-serif;
+}
+
+.toggle input {
+  accent-color: var(--accent);
+}
+
+.chart {
+  min-height: 360px;
+  background: #fff;
+  border-radius: 16px;
+  padding: 16px;
+  border: 1px solid rgba(30, 31, 36, 0.08);
+}
+
+.summary-controls {
+  display: grid;
+  gap: 18px;
+  margin-bottom: 20px;
+}
+
+.control-block {
+  background: #fff;
+  padding: 16px;
+  border-radius: 16px;
+  border: 1px solid rgba(30, 31, 36, 0.08);
+  display: grid;
+  gap: 10px;
+}
+
+.toggle-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.metrics-grid {
+  display: grid;
+  gap: 18px;
+}
+
+.metric-card {
+  background: var(--panel);
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: var(--shadow);
+  display: grid;
+  gap: 14px;
+}
+
+.metric-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.metric-header h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.metric-targets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.metric-chart {
+  min-height: 240px;
+}
+
+.window-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chip {
+  background: #fff;
+  color: var(--ink);
+  border: 1px solid rgba(30, 31, 36, 0.2);
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  box-shadow: none;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.chip:hover {
+  transform: none;
+  box-shadow: none;
+  border-color: rgba(30, 31, 36, 0.35);
+}
+
+.chip.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+.empty {
+  display: grid;
+  place-items: center;
+  height: 100%;
+  color: var(--muted);
+}
+
+.summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 18px;
+  animation: floatIn 0.7s ease-out 0.2s both;
+}
+
+.summary-card {
+  background: #fff;
+  padding: 18px;
+  border-radius: 16px;
+  border: 1px solid rgba(30, 31, 36, 0.08);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.summary-card h4 {
+  margin: 0 0 6px;
+  font-size: 16px;
+}
+
+.score {
+  font-size: 28px;
+  font-weight: 700;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.score span {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+.error {
+  color: #a12f2f;
+  margin: 0;
+}
+
+.muted {
+  color: var(--muted);
+  margin: 0;
+}
+
+@keyframes floatIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .chart {
+    min-height: 280px;
+    padding: 12px;
+  }
+
+  .toggle {
+    padding: 6px 0;
+  }
+
+  .metric-card {
+    padding: 16px;
+  }
+
+  .metric-chart {
+    min-height: 220px;
+  }
+}

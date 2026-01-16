@@ -1,0 +1,24 @@
+{
+  "window_seconds": 60,
+  "probe_interval_seconds": 1,
+  "targets": {
+    "gateway": "10.0.0.1",
+    "public": "8.8.8.8"
+  },
+  "thresholds": {
+    "loss_pct_max": 0,
+    "rtt_ms_p90_max": 100,
+    "jitter_ms_p90_max": 30,
+    "rtt_spike_factor": 2.0
+  },
+  "throughput": {
+    "enabled": true,
+    "interval_minutes": 2,
+    "test_duration_s": 10,
+    "source": "iperf3",
+    "server": "speedtest.sea11.us.leaseweb.net",
+    "port": 5201,
+    "retries": 2,
+    "retry_delay_ms": 1000
+  }
+}
