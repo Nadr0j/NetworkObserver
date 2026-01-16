@@ -11,4 +11,7 @@ if [[ ! -f "$FRONTEND_DIR/dist/index.html" ]]; then
 fi
 
 cd "$BACKEND_DIR"
+if [[ -x "$BACKEND_DIR/gradlew" ]]; then
+  exec "$BACKEND_DIR/gradlew" run --args="--config ../config.json"
+fi
 exec gradle run --args="--config ../config.json"
