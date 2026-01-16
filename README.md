@@ -1,6 +1,8 @@
 # NetworkObserver
 
-A highly configurable network observability stack that measures latency, loss, jitter, and throughput from the point of view of a device on your home LAN. It aggregates 60s windows and produces JSONL logs, plus a mobile‑first UI for exploration.
+NetworkObserver is a highly configurable, LAN network observability stack that measures latency, loss, jitter, and throughput, aggregating data in configurable buckets and surfacing it through JSONL logs and a UI.
+
+![NetworkObserver UI](main_image.png)
 
 ## What it does
 - Active probes to configured targets (gateway + public) every interval
